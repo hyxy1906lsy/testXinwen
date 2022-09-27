@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.hq.mapper.GgMapper">
+
+	<select id="AllGg" resultType="gg">
+		select * from gg
+	</select>
+
+	<select id="AllF" resultType="fankui">
+		select * from fankui
+	</select>
+
+	<insert id="AddF" parameterType="fankui">
+		INSERT INTO fankui(name,main) VALUE(#{name},#{main});
+	</insert>
+
+	<insert id="AddG" parameterType="java.util.Map">
+		INSERT INTO gg(title,main) VALUE(#{name},#{main});
+	</insert>
+
+	<delete id="DelG" parameterType="java.util.Map">
+		DELETE FROM gg WHERE title=#{name};
+	</delete>
+</mapper>

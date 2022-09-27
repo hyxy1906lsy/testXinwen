@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.hq.mapper.SubMapper">
+
+	<select id="AllSub" resultType="sub">
+		select * from sub
+	</select>
+
+    <insert id="ReqSub" parameterType="java.util.Map">
+        INSERT INTO sub(sub,count,reson,money,people,YN) VALUE(#{sub},#{count},#{reson},#{money},#{people},'未审批');
+    </insert>
+
+    <update id="sp1"  parameterType="java.util.Map">
+        update sub set YN=#{YN} where sub=#{sub}
+    </update>
+
+    <!--<update id="sp1"  parameterType="java.util.Map">-->
+        <!--update sub set YN='已驳回' where sub=#{sub}-->
+    <!--</update>-->
+</mapper>

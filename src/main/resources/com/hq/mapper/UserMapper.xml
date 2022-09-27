@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.hq.mapper.UserMapper">
+	<select id="adminLog" resultType="int" parameterType="java.util.Map">
+		select COUNT(*) from admin where name=#{name1} and psw=#{psw}
+	</select>
+
+	<select id="UserLog" resultType="int" parameterType="java.util.Map">
+		select COUNT(*) from user where name=#{name1} and psw=#{psw}
+	</select>
+
+	<select id="AllUser" resultType="user">
+		select * from user
+	</select>
+
+	<insert id="addUser" parameterType="user">
+		 INSERT INTO user(id,name,psw,sex,year,phone) VALUE(DEFAULT ,#{name},#{psw},#{sex},#{year},#{phone});
+	</insert>
+
+	<update id="UpA"  parameterType="java.util.Map">
+		update admin set psw=#{newP} where name=#{name1}
+	</update>
+
+    <update id="UpU"  parameterType="java.util.Map">
+        update user set name=#{name2},psw=#{psw},sex=#{sex},year=#{year},phone=#{phone} where name=#{name1}
+    </update>
+
+	<delete id="DelU" parameterType="java.util.Map">
+		DELETE FROM user WHERE id=#{name1};
+	</delete>
+	<update id="UpK"  parameterType="java.util.Map">
+		update user set bt=#{bt},ot=#{ot},bumen=#{bumen},zhuangtai=#{zhuangtai} where name=#{name1}
+	</update>
+
+	<update id="UpX"  parameterType="java.util.Map">
+		update user set money=#{money},moneyjj=#{moneyjj},moneygz=#{moneygz},moneyk=#{moneyk} where name=#{name1}
+	</update>
+</mapper>

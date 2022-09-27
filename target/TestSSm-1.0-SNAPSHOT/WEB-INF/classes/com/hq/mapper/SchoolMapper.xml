@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.hq.mapper.SchoolMapper">
+
+	<select id="alls" resultType="school">
+		select * from school
+	</select>
+
+	<select id="allsx" resultType="school">
+		select * from school where xnum !=''
+	</select>
+
+	<update id="baoxiu" parameterType="java.util.Map">
+        update school set xnum=#{xnum},reson=#{reson},user=#{name2} where name=#{name1}
+    </update>
+
+	<update id="sp" parameterType="java.util.Map">
+		update school set xnum='',reson='',user='' where name=#{name1}
+	</update>
+
+
+</mapper>
